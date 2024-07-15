@@ -56,7 +56,8 @@ POST {{baseUrl}}/stocks/
 Content-Type: application/json
 
 {
-  "address": "ой адрес не дом и не улица, мой адрес сегодня такой: www.ленинград-спб.ru3",
+  "id": "1",
+  "address": "Мой адрес не дом и не улица, мой адрес сегодня такой: www.ленинград-спб.ru3",
   "positions": [
     {
       "product": 2,
@@ -74,7 +75,7 @@ Content-Type: application/json
 ###
 
 # обновляем записи на складе
-PATCH {{baseUrl}}/stocks/4/
+PATCH {{baseUrl}}/stocks/6/
 Content-Type: application/json
 
 {
