@@ -49,8 +49,10 @@ class StockSerializer(serializers.ModelSerializer):
             pos, created = StockProduct.objects.update_or_create(
                 stock=instance,
                 product=position.get('product'),
-                quantity=position.get('quantity'),
-                price=position.get('price')
+                defaults={
+                    'quantity': position.get('quantity'),
+                    'price': position.get('price')
+                }
             )
         print(created, pos)
         return stock

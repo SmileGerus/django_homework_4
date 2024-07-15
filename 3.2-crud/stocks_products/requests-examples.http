@@ -17,8 +17,8 @@ POST {{baseUrl}}/products/
 Content-Type: application/json
 
 {
-  "title": "Огурцы",
-  "description": "Свежесть и аромат..."
+  "title": "Перец",
+  "description": "Просто прелесть!"
 }
 
 ###
@@ -56,18 +56,17 @@ POST {{baseUrl}}/stocks/
 Content-Type: application/json
 
 {
-  "id": "1",
-  "address": "Мой адрес не дом и не улица, мой адрес сегодня такой: www.ленинград-спб.ru3",
+  "address": "www.ленинград-спб.ru4",
   "positions": [
     {
       "product": 2,
-      "quantity": 250,
-      "price": 120.50
+      "quantity": 50,
+      "price": 103.70
     },
     {
-      "product": 3,
-      "quantity": 100,
-      "price": 180
+      "product": 6,
+      "quantity": 20,
+      "price": 340
     }
   ]
 }
@@ -75,7 +74,7 @@ Content-Type: application/json
 ###
 
 # обновляем записи на складе
-PATCH {{baseUrl}}/stocks/6/
+PATCH {{baseUrl}}/stocks/7/
 Content-Type: application/json
 
 {
@@ -106,4 +105,7 @@ Content-Type: application/json
 
 ###
 
-GET {{baseUrl}}/stocks/
+GET {{baseUrl}}/stocks/?page=1
+
+###
+
