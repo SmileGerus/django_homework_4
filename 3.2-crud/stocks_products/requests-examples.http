@@ -109,3 +109,5 @@ GET {{baseUrl}}/stocks/?page=1
 
 ###
 
+GET {{baseUrl}}/products/?title=1
+
