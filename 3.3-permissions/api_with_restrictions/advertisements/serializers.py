@@ -1,5 +1,9 @@
 from django.contrib.auth.models import User
+from django.forms import ValidationError
 from rest_framework import serializers
+from django_filters import FilterSet, DateFromToRangeFilter
+
+
 
 from advertisements.models import Advertisement
 
@@ -41,5 +45,15 @@ class AdvertisementSerializer(serializers.ModelSerializer):
         """Метод для валидации. Вызывается при создании и обновлении."""
 
         # TODO: добавьте требуемую валидацию
-
+        adv_objects=Advertisement.objects.filter(creator_id=self.context['request'].user.id, status='OPEN')
+        if adv_objects.count() > 10:
+            raise ValidationError('Создано более 10 открытых объявлений!')
         return data
+
+
+class Filter_Date(FilterSet):
+    date = DateFromToRangeFilter()
+    
+    class Meta:
+        model = Advertisement
+        fields = ['created_at']
