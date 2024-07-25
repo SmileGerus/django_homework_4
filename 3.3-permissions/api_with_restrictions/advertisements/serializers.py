@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.forms import ValidationError
 from rest_framework import serializers
-from django_filters import FilterSet, DateFromToRangeFilter
+
 
 
 
@@ -51,9 +51,3 @@ class AdvertisementSerializer(serializers.ModelSerializer):
         return data
 
 
-class Filter_Date(FilterSet):
-    date = DateFromToRangeFilter()
-    
-    class Meta:
-        model = Advertisement
-        fields = ['created_at']
